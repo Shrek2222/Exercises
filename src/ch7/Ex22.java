@@ -1,19 +1,14 @@
 package ch7;
 
-public class Ch7Ex22 {
+public class Ex22 {
 	
 		
 		public static void main(String[] args) {
 			char[] board; 
-
 			do {
 				board = getNewBoard();
-
 				placeQueens(board);
-
 			} while (isAttacking(board));
-
-			
 			print(board);
 		}
 
@@ -21,10 +16,7 @@ public class Ch7Ex22 {
 		public static void placeQueens(char[] board) {
 			int location;
 			for (int i = 0; i < 8; i++) {
-				do {
-					
-					
-					
+				do {			
 					location = placeQueens();
 				} while (isOccupied(board[location]));
 				board[location] = 'Q';
