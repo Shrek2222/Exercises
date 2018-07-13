@@ -16,7 +16,6 @@ public class Ex1 {
 					m[i][j] = input.nextDouble();
 				}
 			}
-
 			for (int j = 0; j < m[0].length; j++) {
 				System.out.printf("Sum of the elements at column %d is %.1f%n", j, sumColumn(m, j));
 			}
