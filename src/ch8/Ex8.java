@@ -20,38 +20,87 @@ public class Ex8 {
 		}
 		return returnVal;
 	}
-	private double findDistance(double x1, double y1, double x2, double y2) {
+	private static double findDistance(double x1, double y1, double x2, double y2) {
 		return 0.0;
 	}
 
 	public static void main(String[] args) {
-		double[][] points = readData();
-		int p1 = 0, p2 = 1; 
-		double shortdistance = (points[p1][0], points[p1][1],
-				points[p2][0], points[p2][p1]); 
-
-
+		double[][] points = readData();	
+		int maxSet = points.length * (points.length - 1) / 2;
+		double[][] closePoints = new double[maxSet][4];
+		double minDistance = Double.MAX_VALUE;
 		for (int i = 0; i < points.length; i++) {
 			for (int j = i + 1; j < points.length; j++) {
-				// double distance =??? (points[i][0],[i][1],
-				// points[j][0], points[j][1]); 
+				double currDistance = findDistance(points[i][0], points[i][1], points[j][0], points[j][1]);
+				if(Math.abs((currDistance - minDistance)) < 0.000001) {
+					addPoint(closePoints, points[i][0], points[i][1], points[j][0], points[j][1]);
+				} else if (currDistance < minDistance) {
+					minDistance = currDistance; 
+					replacePoint(closePoints, points[i][0], points[i][1], points[j][0], points[j][1]);					
+				} 
+			}
+		}	
+		System.out.println("Minimum distance is "+minDistance);
+		print(closePoints);
 
-				// if (shortdistance > distance) {
-				p1 = i; 
-				p2 = j; 
-				shortdistance = distance; 
+	}
+	private static void print(double[][] closePoints) {
+		for(int i = 0; i< closePoints.length;++i) {
+			if( closePoints[i][0] == 0 && 
+					closePoints[i][1] == 0 &&
+					closePoints[i][2] == 0 &&
+					closePoints[i][3] == 0) {
+				break;
+			}
+			System.out.printf("x1 %4.2f, y1 %4.2f and x2 %4.2f, y2 %4.2f \n", 
+					closePoints[i][0], closePoints[i][1],closePoints[i][2],closePoints[i][3]);
+		}
+		
+	}
+	private static void replacePoint(double[][] closePoints, double x1, double y1, double x2, double y2) {
+		findEmpty(closePoints, true);
+		closePoints[0][0] = x1;
+		closePoints[0][1] = y1;
+		closePoints[0][2] = x2;
+		closePoints[0][3] = y2;
+
+	}
+	/**
+	 * Adds the points to first empty space
+	 * @param closePoints
+	 * @param x1
+	 * @param y1
+	 * @param x2
+	 * @param y2
+	 */
+	private static void addPoint(double[][] closePoints, double x1, double y1, double x2, double y2) {
+		int emptyIndex = findEmpty(closePoints, false);
+		closePoints[emptyIndex][0] = x1;
+		closePoints[emptyIndex][1] = y1;
+		closePoints[emptyIndex][2] = x2;
+		closePoints[emptyIndex][3] = y2;
+	}
+	/**
+	 * considers first set empty where x1=y1=x2=y2=0
+	 * @param closePoints
+	 * @param clean sets elements to zero 
+	 * @return -1 if no element is empty
+	 */
+	private static int findEmpty(double[][] closePoints, boolean clean) {
+		for(int i = 0; i< closePoints.length;++i) {
+			if( closePoints[i][0] == 0 && 
+					closePoints[i][1] == 0 &&
+					closePoints[i][2] == 0 &&
+					closePoints[i][3] == 0) {
+				return i;
+			} else if (clean)
+			{
+				closePoints[i][0] = 0 ;
+				closePoints[i][1] = 0 ;
+				closePoints[i][2] = 0 ;
+				closePoints[i][3] = 0;
 			}
 		}
+		return -1;
 	}
-
-
-
-}
-}
-System.out.println("The distance is " + shortdistance);
-}
-
-
-}
-
 }
