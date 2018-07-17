@@ -11,7 +11,7 @@ static String srt = "abc";
 public void initData(String[] arr){
 	int ind = 0;
 	for(String str: arr){
-		str.concat(str+" "+ind);
+		
 		ind++;
 		
 	}
@@ -27,11 +27,11 @@ public void initData(String[] arr){
 public static void main (String [] args){
 	String br= "i";
 	System.out.println(br.concat("abc"));
-	System.out.println(str ==str.concat("abc"));
+	
 	System.out.println(str==srt);
 	Testclass ot = new Testclass();
 	String [] arr = new String[2];
-	ot.initData(arr);
+	
 	ot.printData(arr);
 }
 
