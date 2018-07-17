@@ -4,6 +4,7 @@ class Sub extends Super { }
 public class SuperClass {
 	public static int count = 4;
 	int poop = 6;
+	
 public static void main (String []args){
 	SuperClass s1 = new SuperClass();
 	SuperClass s4 = new SuperClass();
