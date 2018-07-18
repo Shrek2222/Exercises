@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.lang.Math;
 public class Ex8 {
 	String s;
-	
+
 	public static double[][] readData(){
 		Scanner input = null;
 		double[][] returnVal;
@@ -23,55 +23,31 @@ public class Ex8 {
 		}
 		return returnVal;
 	}
-<<<<<<< HEAD
 	public static double getDistance(
 			double x1, double y1, double x2, double y2)
 	{
 		return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 	}
-	private double findDistance(double x1, double y1, double x2, double y2) {
-=======
-	private static double findDistance(double x1, double y1, double x2, double y2) {
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
-		return 0.0;
-	}
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-
-
-
-		double[][] points = readData();
-=======
 		double[][] points = readData();	
 		int maxSet = points.length * (points.length - 1) / 2;
 		double[][] closePoints = new double[maxSet][4];
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
+
 		double minDistance = Double.MAX_VALUE;
 		for (int i = 0; i < points.length; i++) {
 			for (int j = i + 1; j < points.length; j++) {
-<<<<<<< HEAD
-				double distance = getDistance(points[i][0], points[i][1],
-						points[j][0], points[j][1]);
-				if (minDistance > distance) {
-					minDistance = distance;
-=======
-				double currDistance = findDistance(points[i][0], points[i][1], points[j][0], points[j][1]);
+				double currDistance = getDistance(points[i][0], points[i][1], points[j][0], points[j][1]);
 				if(Math.abs((currDistance - minDistance)) < 0.000001) {
 					addPoint(closePoints, points[i][0], points[i][1], points[j][0], points[j][1]);
 				} else if (currDistance < minDistance) {
 					minDistance = currDistance; 
 					replacePoint(closePoints, points[i][0], points[i][1], points[j][0], points[j][1]);					
-				} 
-			}
-		}	
-		System.out.println("Minimum distance is "+minDistance);
-		print(closePoints);
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
-
-<<<<<<< HEAD
-				}
-=======
+				}				
+			}	
+			System.out.println("Minimum distance is "+minDistance);
+			print(closePoints);
+		}
 	}
 	private static void print(double[][] closePoints) {
 		for(int i = 0; i< closePoints.length;++i) {
@@ -84,7 +60,7 @@ public class Ex8 {
 			System.out.printf("x1 %4.2f, y1 %4.2f and x2 %4.2f, y2 %4.2f \n", 
 					closePoints[i][0], closePoints[i][1],closePoints[i][2],closePoints[i][3]);
 		}
-		
+
 	}
 	private static void replacePoint(double[][] closePoints, double x1, double y1, double x2, double y2) {
 		findEmpty(closePoints, true);
@@ -127,24 +103,14 @@ public class Ex8 {
 				closePoints[i][0] = 0 ;
 				closePoints[i][1] = 0 ;
 				closePoints[i][2] = 0 ;
-				closePoints[i][3] = 0;
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
+				closePoints[i][3] = 0;				
 			}
+
 		}
-<<<<<<< HEAD
-		System.out.println("The minimum distance is "+minDistance);
-=======
 		return -1;
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
 	}
-<<<<<<< HEAD
-
-
-
 
 }
 
 
-=======
-}
->>>>>>> branch 'master' of https://github.com/Shrek2222/Exercises.git
+
