@@ -29,7 +29,7 @@ public class Ex5 {
 			}
 			//System.out.println();
 		} finally {
-			input.close();
+			if(null != input) input.close();
 		}
 	}
 

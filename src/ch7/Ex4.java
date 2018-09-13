@@ -27,8 +27,9 @@ public class Ex4 {
 				average += num;				
 				numberOfScores++;					
 			}
-
-			average /= numberOfScores;	
+			if(numberOfScores != 0 ) {
+				average /= numberOfScores;
+			}
 
 			int aboveOrEqual;						
 			int below;								
@@ -47,7 +48,7 @@ public class Ex4 {
 			System.out.println(
 					"Number of scores below average: " + below);
 		}finally {
-			input.close();
+			if(null != input) input.close();
 		}
 	}
 	//System.out.println();

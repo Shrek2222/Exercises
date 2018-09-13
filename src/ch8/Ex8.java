@@ -18,7 +18,7 @@ public class Ex8 {
 				System.out.println("Next point");
 			}
 		}finally {
-			input.close();
+			if(null != input) input.close();
 		}
 		return returnVal;
 	}

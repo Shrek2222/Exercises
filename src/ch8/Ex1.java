@@ -20,7 +20,7 @@ public class Ex1 {
 				System.out.printf("Sum of the elements at column %d is %.1f%n", j, sumColumn(m, j));
 			}
 		} finally {
-			input.close();
+			if(null != input) input.close();
 		}
 	}
 
