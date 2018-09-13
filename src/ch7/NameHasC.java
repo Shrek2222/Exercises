@@ -1,7 +1,6 @@
-
-public class ExerciseName {
-	public static void main (String [] args){
-		String [] names = {"Donald Trump", "Melania Duck", "Ivanka Tracy","John carter","Cynthia clark"};
+package ch7;
+public class NameHasC {
+	public static void exer (String [] names){		
 		for(String i: names){
 			int j = i.indexOf(" ");
 			if (i.indexOf("c",j) > 0) {
