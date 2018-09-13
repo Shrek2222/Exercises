@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class TicTac {
 	//initializes to zero, 1 = X and -1 for 0
-	private final static int X = 1;
-	private final static int O = 2;
+	private static final int X = 1;
+	private static final int O = 2;
 	private int[][] holders = new int[3][3];
 	private void paint() {
 		for(int i = 0;i < holders.length; ++i) {

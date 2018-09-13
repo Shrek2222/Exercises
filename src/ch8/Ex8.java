@@ -1,6 +1,5 @@
 package ch8;
 import java.util.Scanner;
-import java.lang.Math;
 public class Ex8 {
 	String s;
 
